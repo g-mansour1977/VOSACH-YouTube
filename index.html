@@ -4,210 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Déclarations du Président | VOSACH</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Déclarations officielles et sorties médiatiques du Président de l’ONG VOSACH à Sherbrooke.">
+  <meta name="description" content="Déclarations officielles et sorties médiatiques du Président de l’ONG VOSACH.">
   <meta name="author" content="ONG VOSACH">
 
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
+    :root{
+      --vosach-orange: #FF8C00;
+      --vosach-jaune: #FFD700;
+      --vosach-noir: #2D2D2D;
+      --vosach-blanc: #ffffff;
+      --vosach-gris: #f5f5f5;
     }
 
-    header {
-      background: #0b5ed7;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    header h1 {
-      margin-bottom: 10px;
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(-45deg, var(--vosach-orange), var(--vosach-jaune), #FFB347, #FFA500);
+      background-size: 400% 400%;
+      animation: gradientMove 18s ease infinite;
+      color: var(--vosach-noir);
+      overflow-x: hidden;
+    }
+
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    header{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--vosach-orange);
+      padding: 15px 20px;
+      color: var(--vosach-blanc);
+      position: relative;
+      z-index: 2;
+    }
+
+    header img{
+      height: 60px;
+    }
+
+    header h1{
       font-size: 28px;
+      font-weight: 700;
+      margin: 0;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 18px;
-    }
-
-    .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    nav.menu{
+      display: flex;
+      justify-content: center;
       gap: 25px;
+      background: var(--vosach-jaune);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 2;
     }
 
-    .video-card {
-      background: #fff;
-      border-radius: 8px;
+    nav.menu a{
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--vosach-noir);
+      padding: 5px 8px;
+      transition: 0.3s;
+    }
+
+    nav.menu a:hover, nav.menu a.active{
+      border-bottom: 3px solid var(--vosach-orange);
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .intro{
+      background: var(--vosach-blanc);
+      border-radius: 14px;
+      padding: 30px;
+      max-width: 900px;
+      margin: 0 auto 50px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      font-size: 17px;
+    }
+
+    .videos{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .video-card{
+      background: var(--vosach-blanc);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .video-wrapper {
+    .video-card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+    }
+
+    .video-wrapper{
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
+      background: #000;
     }
 
-    .video-wrapper iframe {
+    .video-wrapper iframe{
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: none;
     }
 
-    .video-content {
-      padding: 15px;
+    .video-content{
+      padding: 22px;
     }
 
-    .video-content h3 {
-      margin: 0 0 8px;
-      color: #0b5ed7;
+    .video-content h3{
+      margin: 0 0 10px;
       font-size: 18px;
+      color: var(--vosach-orange);
     }
 
-    .video-content p {
-      font-size: 14px;
-      margin-bottom: 5px;
+    .video-content p{
+      font-size: 15px;
+      color: var(--vosach-noir);
+      margin-bottom: 8px;
     }
 
-    .video-date {
+    .video-date{
       font-size: 13px;
       color: #777;
     }
 
-    footer {
-      background: #222;
-      color: #ccc;
+    footer{
+      background: var(--vosach-orange);
+      color: var(--vosach-blanc);
       text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+      padding: 25px;
       font-size: 14px;
     }
 
-    footer a {
-      color: #fff;
-      text-decoration: none;
+    footer a{
+      color: var(--vosach-blanc);
+      text-decoration: underline;
+      font-weight: bold;
     }
-
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="logo-vosach-1.png" alt="Logo VOSACH">
-    <h1>Déclarations du Président</h1>
-    <p>ONG VOSACH – Sherbrooke (Canada)</p>
-  </header>
+<div id="tsparticles"></div>
 
-  
+<header>
+  <img src="logo-vosach-1.png" alt="Logo VOSACH">
+  <h1>Déclarations du Président</h1>
+</header>
 
-  <main class="container">
+<nav class="menu">
+  <a href="#" class="active">Médias</a>
+  <a href="#">À propos</a>
+  <a href="#">Contact</a>
+</nav>
 
-    <p class="intro">
-      Retrouvez ici les sorties médiatiques, déclarations officielles et prises de parole
-      du Président de l’ONG <strong>VOSACH</strong> sur les actions humanitaires et sociales.
-    </p>
+<main class="container">
 
-    <!-- VIDEOS -->
-    <section class="videos">
+  <div class="intro">
+    Retrouvez sur cette page l’ensemble des déclarations officielles,
+    sorties médiatiques et prises de parole du Président de l’ONG
+    <strong>VOSACH</strong>, mettant en lumière les actions humanitaires,
+    sociales et communautaires de l’organisation.
+  </div>
 
-      <!-- VIDEO 1 -->
-      <article class="video-card">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube.com/embed/_m4R72qQMG8"
-            title="Déclaration du Président VOSACH"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="video-content">
-          <h3>Déclaration officielle – Actions humanitaires</h3>
-          <p>Présentation des activités sociales et humanitaires de VOSACH.</p>
-          <span class="video-date">📅 2024</span>
-        </div>
-      </article>
-
-      <!-- VIDEO 2 -->
-      <article class="video-card">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/aqqACF-ZTZw"
-            title="Sortie médiatique Président VOSACH"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="video-content">
-          <h3>Sortie médiatique à Sherbrooke</h3>
-          <p>Engagement communautaire et coopération internationale.</p>
-          <span class="video-date">📅 2024</span>
-        </div>
-      </article>
-
-      <!-- VIDEO 3 -->
-      <article class="video-card">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/RrwD8i3Igj4"
-            title="Intervention du Président VOSACH"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="video-content">
-          <h3>Intervention publique du Président</h3>
-          <p>Message de sensibilisation et vision stratégique de l’ONG.</p>
-          <span class="video-date">📅 2024</span>
-        </div>
-      </article>
-
-      <!-- VIDEO 4 -->
-      <article class="video-card">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/m4qSHkz8y00"
-            title="Communication officielle VOSACH"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="video-content">
-          <h3>Communication officielle</h3>
-          <p>Actions futures et appel à l’engagement des partenaires.</p>
-          <span class="video-date">📅 2024</span>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- DOCUMENT PDF -->
-<section class="pdf-section">
+   <!-- DOCUMENT PDF -->
+<section class="pdf-section" id="documents">
   <h2>📄 Document officiel – ONG VOSACH</h2>
-  <p>
-  📄 <a href="document-vosach.pdf" target="_blank">
-  Consulter le document officiel VOSACH (PDF)
-  </a>
-</p>
-
+  
   <div class="pdf-wrapper">
     <iframe 
-      src="document-vosach.pdf"
-      title="Document officiel VOSACH">
+      src="CONTRIBUTION POUR LE DEVELOPPEMENT DE MON PAYS NOUVELLE VERSION.pdf" title="Document officiel VOSACH">
     </iframe>
   </div>
 
@@ -216,13 +213,77 @@
   </p>
 </section>
 
-  </main>
+  <section class="videos">
 
-  <!-- FOOTER -->
-  <footer>
-    © 2024 ONG VOSACH | 
-    <a href="https://vosach.ca/" target="_blank">Site officiel</a>
-  </footer>
+    <article class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/_m4R72qQMG8" allowfullscreen></iframe>
+      </div>
+      <div class="video-content">
+        <h3>Déclaration officielle – Actions humanitaires</h3>
+        <p>Présentation des activités sociales et humanitaires de VOSACH.</p>
+        <span class="video-date">📅 2024</span>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/aqqACF-ZTZw" allowfullscreen></iframe>
+      </div>
+      <div class="video-content">
+        <h3>Sortie médiatique à Sherbrooke</h3>
+        <p>Engagement communautaire et coopération internationale.</p>
+        <span class="video-date">📅 2024</span>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/RrwD8i3Igj4" allowfullscreen></iframe>
+      </div>
+      <div class="video-content">
+        <h3>Intervention publique du Président</h3>
+        <p>Vision stratégique et message de sensibilisation.</p>
+        <span class="video-date">📅 2024</span>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/m4qSHkz8y00" allowfullscreen></iframe>
+      </div>
+      <div class="video-content">
+        <h3>Communication officielle</h3>
+        <p>Actions futures et appel à l’engagement des partenaires.</p>
+        <span class="video-date">📅 2024</span>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  © 2024 ONG VOSACH — <a href="https://vosach.ca/" target="_blank">Site officiel</a>
+</footer>
+
+<script>
+  tsParticles.load("tsparticles", {
+    fpsLimit: 60,
+    particles: {
+      number: { value: 70, density: { enable: true, area: 800 } },
+      color: { value: "#ffffff" },
+      opacity: { value: 0.4 },
+      size: { value: { min: 2, max: 4 } },
+      move: { enable: true, speed: 1.2 },
+      links: { enable: true, distance: 130, opacity: 0.25 }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "grab" } },
+      modes: { grab: { distance: 140, links: { opacity: 0.5 } } }
+    },
+    detectRetina: true
+  });
+</script>
 
 </body>
 </html>
